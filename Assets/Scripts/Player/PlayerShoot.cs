@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform playerShootPosition;
+    [SerializeField] float defaultBulletSpeed;
+    [SerializeField] float timeToShootAgain;
+
+    bool ableToShoot;
+
+    void Awake()
     {
-        
+        ableToShoot = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        ListenShootingInputs();
+    }
+
+    void ListenShootingInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || ableToShoot)
+        {
+            ableToShoot = false;
+
+            GameObject bullet = PoolManager.Obj.BulletPool.GetElement();
+
+            BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
+            bulletBehaviour.SetUpBullet(playerShootPosition.position);
+            bulletBehaviour.ShootBullet(Vector2.right, defaultBulletSpeed);
+
+            StartCoroutine(WaitToShootAgain());
+        }
+    }
+    IEnumerator WaitToShootAgain()
+    {
+        yield return new WaitForSeconds(timeToShootAgain);
+        ableToShoot = true;
     }
 }
