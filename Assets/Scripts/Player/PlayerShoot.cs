@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour
 
     void ListenShootingInputs()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || ableToShoot)
+        if (Input.GetKeyDown(KeyCode.Space) & ableToShoot)
         {
             ableToShoot = false;
 

@@ -24,17 +24,17 @@ public class BulletBehaviour : MonoBehaviour
         return _bulletDamage;
     }
 
- /*   private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (collision.gameObject.tag == "Enemy")
         {
-            PoolManager.Instance.BulletPool.ReturnElement(this.gameObject);
+            PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
         }
-
+    }
+        /*
         if (other.CompareTag("Player"))
         {
             PoolManager.Instance.BulletPool.ReturnElement(this.gameObject);
             other.GetComponent<PlayerHealth>().TakeDamage();
-        }
-    }*/
+        }*/
 }

@@ -203,5 +203,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShootPosition: {fileID: 200260046643111467}
-  defaultBulletSpeed: 3
-  timeToShootAgain: 0.5
+  defaultBulletSpeed: 30
+  timeToShootAgain: 0.05
