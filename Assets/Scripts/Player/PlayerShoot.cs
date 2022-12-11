@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] Transform playerShootPosition;
-    [SerializeField] float defaultBulletSpeed;
+    float defaultBulletSpeed = 150;
     [SerializeField] float timeToShootAgain;
 
     bool ableToShoot;

@@ -13,7 +13,7 @@ public class BulletBehaviour : MonoBehaviour
         _bulletDamage = bulletDamage;
     }
 
-    public void ShootBullet(Vector2 direction, float speed = 80)
+    public void ShootBullet(Vector2 direction, float speed = 150)
     {
         gameObject.SetActive(true);
         _bulletRigidbody.velocity = new Vector2(direction.x, direction.y * speed);
@@ -26,9 +26,6 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
-        }
+        PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
     }
 }
