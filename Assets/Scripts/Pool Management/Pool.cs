@@ -5,22 +5,34 @@ using UnityEngine;
 public class Pool : MonoBehaviour
 {
     [SerializeField] GameObject poolElementPrefab;
-    Stack<GameObject> _pool;
+    List<GameObject> _pool = new List<GameObject>();
+
+    public int amountToPool = 30;
 
     void Awake()
     {
-        _pool = new Stack<GameObject>();
+        for(int i = 0; i < amountToPool; i++)
+        {
+            GameObject prefabFromPool = Instantiate(poolElementPrefab);
+            prefabFromPool.SetActive(false);
+            _pool.Add(prefabFromPool);
+        }
     }
 
     public GameObject GetElement()
     {
-        _pool.Push(Instantiate(poolElementPrefab, this.transform));
-        return _pool.Pop();
+        for(int j = 0; j < _pool.Count; j++)
+        {
+            if (!_pool[j].activeInHierarchy)
+            {
+                return _pool[j];
+            }
+        }
+        return null;
     }
 
     public void ReturnElement(GameObject elementToReturn)
     {
         elementToReturn.SetActive(false);
-        _pool.Push(elementToReturn);
     }
 }

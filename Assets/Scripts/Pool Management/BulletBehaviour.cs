@@ -13,7 +13,7 @@ public class BulletBehaviour : MonoBehaviour
         _bulletDamage = bulletDamage;
     }
 
-    public void ShootBullet(Vector2 direction, float speed = 30)
+    public void ShootBullet(Vector2 direction, float speed = 80)
     {
         gameObject.SetActive(true);
         _bulletRigidbody.velocity = new Vector2(direction.x, direction.y * speed);
@@ -26,15 +26,9 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
         }
     }
-        /*
-        if (other.CompareTag("Player"))
-        {
-            PoolManager.Instance.BulletPool.ReturnElement(this.gameObject);
-            other.GetComponent<PlayerHealth>().TakeDamage();
-        }*/
 }
