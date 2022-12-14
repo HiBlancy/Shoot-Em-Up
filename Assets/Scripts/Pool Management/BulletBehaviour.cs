@@ -13,10 +13,16 @@ public class BulletBehaviour : MonoBehaviour
         _bulletDamage = bulletDamage;
     }
 
-    public void ShootBullet(Vector2 direction, float speed = 150)
+    public void ShootBullet(Vector2 direction, float speed = 50)
     {
         gameObject.SetActive(true);
-        _bulletRigidbody.velocity = new Vector2(direction.x, direction.y * speed);
+        _bulletRigidbody.velocity = new Vector2(direction.x * speed, direction.y * speed);
+    }
+
+    public void ShootEnemyBullet(Vector2 direction, float speedE = 0.9f)
+    {
+        gameObject.SetActive(true);
+        _bulletRigidbody.velocity = new Vector2(direction.x * speedE, direction.y * speedE);
     }
 
     public int GetBulletDamage()
@@ -24,7 +30,7 @@ public class BulletBehaviour : MonoBehaviour
         return _bulletDamage;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
     }

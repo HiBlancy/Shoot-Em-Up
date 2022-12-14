@@ -7,8 +7,10 @@ public class PoolManager : MonoBehaviour
     public static PoolManager Obj { get; private set; }
 
     public Pool BulletPool => _bulletPool;
+    public Pool BulletEnemyPool => _bulletEnemyPool;
 
     [SerializeField] Pool _bulletPool;
+    [SerializeField] Pool _bulletEnemyPool;
 
     void Awake()
     {

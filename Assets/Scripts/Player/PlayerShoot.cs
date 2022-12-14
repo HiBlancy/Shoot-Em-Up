@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] Transform playerShootPosition;
-    float defaultBulletSpeed = 150;
     [SerializeField] float timeToShootAgain;
 
     bool ableToShoot;
@@ -30,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
 
             BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
             bulletBehaviour.SetUpBullet(playerShootPosition.position);
-            bulletBehaviour.ShootBullet(Vector2.right, defaultBulletSpeed);
+            bulletBehaviour.ShootBullet(Vector2.right);
 
             StartCoroutine(WaitToShootAgain());
         }
