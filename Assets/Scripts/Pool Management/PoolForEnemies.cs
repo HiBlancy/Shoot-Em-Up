@@ -14,8 +14,11 @@ public class PoolForEnemies : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             GameObject prefabFromPool = Instantiate(poolElementPrefab);
+            GameObject prefabFromPool2 = Instantiate(poolElementPrefab2);
             prefabFromPool.SetActive(false);
+            prefabFromPool2.SetActive(false);
             _pool.Add(prefabFromPool);
+            _pool.Add(prefabFromPool2);
         }
     }
 

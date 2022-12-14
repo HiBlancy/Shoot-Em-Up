@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnNewEnemy()
     {
         GameObject enemyGO = PoolManager.Obj.EnemyPool.GetElement();
-        Enemy enemy = enemyGO.GetComponent<Enemy>();
+        Enemy enemy = enemyGO.GetComponent<Enemy>(); // why it is not working :(
         enemy.Spawn(_maxSpawnWidth, _spawnHeight);
     }
 }

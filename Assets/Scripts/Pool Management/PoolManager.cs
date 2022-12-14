@@ -8,11 +8,11 @@ public class PoolManager : MonoBehaviour
 
     public Pool BulletPool => _bulletPool;
     public Pool BulletEnemyPool => _bulletEnemyPool;
-    public Pool EnemyPool => _enemyPool;
+    public PoolForEnemies EnemyPool => _enemyPool;
 
     [SerializeField] Pool _bulletPool;
     [SerializeField] Pool _bulletEnemyPool;
-    [SerializeField] Pool _enemyPool;
+    [SerializeField] PoolForEnemies _enemyPool;
 
     void Awake()
     {
