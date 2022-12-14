@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: -8402936856631618100}
   - component: {fileID: 1564546330}
   - component: {fileID: -2623958524304944995}
+  - component: {fileID: -3398507022070241821}
   m_Layer: 6
   m_Name: ShootEnemy
   m_TagString: Untagged
@@ -125,12 +126,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7632749437210642893}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a6b4a58b96de0c4b9f0f2c7ed357a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 0
+  xSpeed: 2
   ySpeed: 0
 --- !u!114 &1331443056154360018
 MonoBehaviour:
@@ -203,5 +204,17 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-3398507022070241821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632749437210642893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e7311567c419e4fa501fc5a8686ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

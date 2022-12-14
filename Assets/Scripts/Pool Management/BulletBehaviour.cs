@@ -25,11 +25,6 @@ public class BulletBehaviour : MonoBehaviour
         _bulletRigidbody.velocity = new Vector2(direction.x * speedE, direction.y * speedE);
     }
 
-    public int GetBulletDamage()
-    {
-        return _bulletDamage;
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         PoolManager.Obj.BulletPool.ReturnElement(this.gameObject);
