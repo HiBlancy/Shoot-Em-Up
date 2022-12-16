@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Image healthBar;
     public int maxHealth = 5;
-    float currentHealth;
+    public float currentHealth;
 
     void Awake()
     {
@@ -21,12 +21,12 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-      //  healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damage = 1)
     {
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthBar();
 
         if (currentHealth <= 0)
@@ -38,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthBar()
     {
         SetColor(currentHealth / maxHealth);
-        healthBar.fillAmount = currentHealth / maxHealth;
     }
 
     void SetColor(float healthPercent)
