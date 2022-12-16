@@ -28,28 +28,11 @@ public class PoolForEnemies : MonoBehaviour
         {
             if (!_pool[j].activeInHierarchy)
             {
-                SelectEnemy();
+                return _pool[Random.Range(j, _pool.Count)];
             }
         }
         return null;
     }
-    void SelectEnemy()
-    {
-        int whatToSpawn;
-        whatToSpawn = Random.Range(0, 1);
-
-        switch (whatToSpawn)
-        {
-            case 0:
-                Instantiate(poolElementPrefab, this.transform);
-                break;
-
-            case 1:
-                Instantiate(poolElementPrefab2, this.transform);
-                break;
-        }
-    }
-
     public void ReturnElement(GameObject elementToReturn)
     {
         elementToReturn.SetActive(false);

@@ -10,14 +10,9 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawningEnemies());
+        InvokeRepeating("SpawnNewEnemy", 0f, 0.5f);
     }
 
-    IEnumerator SpawningEnemies()
-    {
-        SpawnNewEnemy();
-        yield return new WaitForSeconds(1.5f);
-    }
     void SpawnNewEnemy()
     {
         GameObject enemyGO = PoolManager.Obj.EnemyPool.GetElement();
