@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1625888772337903731}
   - component: {fileID: 7652345187447915358}
   - component: {fileID: 8905232090206546847}
+  - component: {fileID: 7143172390513268343}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,6 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43f8a519785f77428bcfabfa9c2e410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 0
 --- !u!114 &7652345187447915358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +207,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShootPosition: {fileID: 200260046643111467}
   timeToShootAgain: 0.05
+--- !u!114 &7143172390513268343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652345187447915357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43f8a519785f77428bcfabfa9c2e410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 5

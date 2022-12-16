@@ -1,14 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int health = 3;
-    public void Damage()
+    public static PlayerHealth Obj { get; private set; }
+
+    public Image healthBar;
+    public int maxHealth = 5;
+    float currentHealth;
+
+    void Awake()
     {
-        health--;
-        if (health == 0)
-            Debug.Log("i ded");
+        if (Obj != null && Obj != this)
+            Destroy(this);
+        else
+            Obj = this;
+    }
+    void Start()
+    {
+        currentHealth = maxHealth;
+      //  healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public void TakeDamage(int damage = 1)
+    {
+        currentHealth -= damage;
+        UpdateHealthBar();
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("se acabó el juego"); //poner pantalla de muerte
+        }
+    }
+
+    public void UpdateHealthBar()
+    {
+        SetColor(currentHealth / maxHealth);
+        healthBar.fillAmount = currentHealth / maxHealth;
+    }
+
+    void SetColor(float healthPercent)
+    {
+        if (healthPercent > 0.66f)
+        {
+            healthBar.color = Color.green;
+        }
+        else if (healthPercent > 0.33f)
+        {
+            healthBar.color = Color.yellow;
+        }
+        else
+        {
+            healthBar.color = Color.red;
+        }
     }
 }

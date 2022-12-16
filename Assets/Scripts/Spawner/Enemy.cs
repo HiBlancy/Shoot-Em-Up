@@ -9,9 +9,16 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector2((maxSpawnWidth), Random.Range (-spawnHeight, spawnHeight));
         this.gameObject.SetActive(true);
     }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
+        if(collision.gameObject.layer == 4)
+            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
+            Debug.Log("this is player");
+            PlayerHealth.Obj.TakeDamage();
+        }
     }
 }
