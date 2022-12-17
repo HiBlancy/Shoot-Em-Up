@@ -10,7 +10,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("ShootEnemy", 0f, 1.5f);
+        InvokeRepeating("ShootEnemy", 0f, 3f);
     }
 
     public void ShootEnemy()

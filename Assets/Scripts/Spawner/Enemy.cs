@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         {
             PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
             Debug.Log("this is player");
-            PlayerHealth.Obj.TakeDamage(1);
+            PlayerHealth.Obj.TakeDamage(1f);
         }
     }
 }

@@ -23,10 +23,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage = 1)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = currentHealth / maxHealth;
         UpdateHealthBar();
 
         if (currentHealth <= 0)
@@ -38,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateHealthBar()
     {
         SetColor(currentHealth / maxHealth);
+        healthBar.fillAmount = currentHealth / maxHealth;
     }
 
     void SetColor(float healthPercent)

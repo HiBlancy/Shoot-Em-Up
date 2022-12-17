@@ -6,10 +6,10 @@ public class EnemyCollision : MonoBehaviour
 {
     public float health;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         health--;
         if (health == 0)
-            gameObject.SetActive(false);
+            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
     }
 }
