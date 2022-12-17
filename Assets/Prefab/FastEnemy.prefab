@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  giveScore: 300
 --- !u!61 &1563205641538528404
 BoxCollider2D:
   m_ObjectHideFlags: 0

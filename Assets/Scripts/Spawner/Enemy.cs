@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
-            Debug.Log("this is player");
             PlayerHealth.Obj.TakeDamage(1f);
         }
     }
