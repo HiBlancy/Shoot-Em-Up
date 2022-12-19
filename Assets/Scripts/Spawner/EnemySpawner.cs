@@ -10,13 +10,13 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnNewEnemy", 0f, 1f);
+        InvokeRepeating("SpawnNewEnemy", 0f, 3f);
     }
 
     void SpawnNewEnemy()
     {
         GameObject enemyGO = PoolManager.Obj.EnemyPool.GetElement();
-        Enemy enemy = enemyGO.GetComponent<Enemy>(); // why it is not working :(
+        Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.Spawn(_maxSpawnWidth, _spawnHeight);
     }
 }

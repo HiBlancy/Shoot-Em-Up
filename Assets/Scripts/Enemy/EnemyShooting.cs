@@ -7,13 +7,14 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] Transform enemyShootPosition;
 
     Transform target;
+    public float timeToShootAgain;
 
     void Start()
     {
-        InvokeRepeating("ShootEnemy", 0f, 3f);
+        InvokeRepeating("ShootEnemy", 0f, timeToShootAgain);
     }
 
-    public void ShootEnemy()
+    void ShootEnemy()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
 

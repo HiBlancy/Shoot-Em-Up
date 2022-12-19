@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PoolForEnemies : MonoBehaviour
 {
-    [SerializeField] GameObject poolElementPrefab, poolElementPrefab2;
+    [SerializeField] GameObject poolElementPrefab, poolElementPrefab2, poolElementPrefab3, poolElementPrefab4;
     List<GameObject> _pool = new List<GameObject>();
 
-    public int amountToPool = 30;
+    public int amountToPool = 20;
 
     void Awake()
     {
@@ -15,10 +15,16 @@ public class PoolForEnemies : MonoBehaviour
         {
             GameObject prefabFromPool = Instantiate(poolElementPrefab);
             GameObject prefabFromPool2 = Instantiate(poolElementPrefab2);
+            GameObject prefabFromPool3 = Instantiate(poolElementPrefab3);
+            GameObject prefabFromPool4 = Instantiate(poolElementPrefab4);
             prefabFromPool.SetActive(false);
             prefabFromPool2.SetActive(false);
+            prefabFromPool3.SetActive(false);
+            prefabFromPool4.SetActive(false);
             _pool.Add(prefabFromPool);
             _pool.Add(prefabFromPool2);
+            _pool.Add(prefabFromPool3);
+            _pool.Add(prefabFromPool4);
         }
     }
 
