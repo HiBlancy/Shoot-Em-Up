@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 5;
     public float currentHealth;
 
+    [SerializeField] GameObject DeadPanel;
+
     void Awake()
     {
         if (Obj != null && Obj != this)
@@ -30,7 +32,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("se acabó el juego"); //poner pantalla de muerte
+            DeadPanel.SetActive(true); //hacer una explocion final cuando el jugador muere y entonces poner el pausa
+            Time.timeScale = 0f;
         }
     }
 
