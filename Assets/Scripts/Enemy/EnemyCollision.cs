@@ -7,12 +7,30 @@ public class EnemyCollision : MonoBehaviour
     public float health;
     public int giveScore;
 
+    [SerializeField] Transform enemyExplotionPosition;
+
     void OnCollisionEnter2D(Collision2D collision)
+    {
+        health--;
+        if (health == 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
     {
         ScoreManager.Obj.addScore(giveScore);
 
-        health--;
-        if (health == 0)
-            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject); //enemigo da puntos aunque colisione al final
+        PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
+
+        GameObject explosion = PoolManager.Obj.ExplotionPool.GetElement();
+        ExplotionBehaviour explotionBehaviour = explosion.GetComponent<ExplotionBehaviour>();
+        explotionBehaviour.SetUpExplotion(enemyExplotionPosition.position);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
     }
 }

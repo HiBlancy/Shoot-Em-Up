@@ -21,19 +21,23 @@ public class PlayerShoot : MonoBehaviour
 
     void ListenShootingInputs()
     {
-        if (Input.GetKeyDown(KeyCode.Space) & ableToShoot)
+        if (Input.GetKey(KeyCode.Space) & ableToShoot)
         {
+            TakeBulletForShoot();
             ableToShoot = false;
-
-            GameObject bullet = PoolManager.Obj.BulletPool.GetElement();
-
-            BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
-            bulletBehaviour.SetUpBullet(playerShootPosition.position);
-            bulletBehaviour.ShootBullet(Vector2.right);
 
             StartCoroutine(WaitToShootAgain());
         }
     }
+    void TakeBulletForShoot()
+    {
+        GameObject bullet = PoolManager.Obj.BulletPool.GetElement();
+
+        BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
+        bulletBehaviour.SetUpBullet(playerShootPosition.position);
+        bulletBehaviour.ShootBullet(Vector2.right);
+    }
+
     IEnumerator WaitToShootAgain()
     {
         yield return new WaitForSeconds(timeToShootAgain);

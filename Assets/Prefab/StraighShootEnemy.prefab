@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2746206713157708476}
   m_Layer: 6
   m_Name: StraighShootEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4494381696650933809}
   - {fileID: 5794452653952735996}
+  - {fileID: 7160176404463939991}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   giveScore: 800
+  enemyExplotionPosition: {fileID: 7160176404463939991}
 --- !u!61 &4941082298488551074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +195,36 @@ MonoBehaviour:
   enemyShootPosition2: {fileID: 5794452653952735996}
   timeToShootAgain: 2
   timeToShootAgain2: 3
+--- !u!1 &4742874039576623758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7160176404463939991}
+  m_Layer: 6
+  m_Name: Explotion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7160176404463939991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742874039576623758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1749320330703485451}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5794452653952735971
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] Text scoreOnScreen;
     public int score;
+    [SerializeField] Text highscore;
 
     void Awake()
     {
@@ -17,6 +18,11 @@ public class ScoreManager : MonoBehaviour
             Destroy(this);
         else
             Obj = this;
+    }
+
+    void Start()
+    {
+        highscore.text = PlayerPrefs.GetInt("Score", 0).ToString();
     }
 
     public void addScore(int giveScore)
@@ -28,5 +34,10 @@ public class ScoreManager : MonoBehaviour
     public void updateScore()
     {
         scoreOnScreen.text = "" + score;
+
+        if (score > PlayerPrefs.GetInt("Score", 0))
+            PlayerPrefs.SetInt("Score", score);
+
+        highscore.text = "" + score;
     }
 }
