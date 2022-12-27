@@ -7,11 +7,18 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] Transform playerShootPosition;
     [SerializeField] float timeToShootAgain;
 
+    AudioSource audioSource;
+
     bool ableToShoot;
 
     void Awake()
     {
         ableToShoot = true;
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -25,6 +32,8 @@ public class PlayerShoot : MonoBehaviour
         {
             TakeBulletForShoot();
             ableToShoot = false;
+
+            audioSource.Play();
 
             StartCoroutine(WaitToShootAgain());
         }

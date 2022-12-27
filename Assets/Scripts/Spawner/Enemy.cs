@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] Transform enemyExplotionPosition;
     public void Spawn(float maxSpawnWidth, float spawnHeight)
     {
         transform.position = new Vector2((maxSpawnWidth), Random.Range (-spawnHeight, spawnHeight));
@@ -11,13 +12,15 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 4)
-            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
             PlayerHealth.Obj.TakeDamage(1f);
+
+            PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
+
+            GameObject explosion = PoolManager.Obj.ExplotionPool.GetElement();
+            ExplotionBehaviour explotionBehaviour = explosion.GetComponent<ExplotionBehaviour>();
+            explotionBehaviour.SetUpExplotion(enemyExplotionPosition.position);
         }
     }
 }

@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
     {
         scoreOnScreen.text = "" + score;
 
-        if (score > PlayerPrefs.GetInt("Score", 0))
+        if (score < PlayerPrefs.GetInt("Score", 0))
             PlayerPrefs.SetInt("Score", score);
 
         highscore.text = "" + score;

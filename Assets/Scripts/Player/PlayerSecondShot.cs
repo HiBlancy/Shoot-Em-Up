@@ -7,6 +7,7 @@ public class PlayerSecondShot : MonoBehaviour
     bool ableToShoot;
     float timeToShootAgain = 20f;
     Animator animator;
+    AudioSource audioSource;
 
     void Awake()
     {
@@ -17,6 +18,8 @@ public class PlayerSecondShot : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("BOOM", false);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -29,8 +32,14 @@ public class PlayerSecondShot : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) & ableToShoot)
         {
             ableToShoot = false;
+
+            audioSource.Play();
+
             GameObject[] enemies;
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            GameObject[] enemyBullets;
+            enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
 
             animator.SetBool("BOOM", true);
 
