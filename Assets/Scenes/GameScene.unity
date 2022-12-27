@@ -6086,7 +6086,7 @@ GameObject:
   - component: {fileID: 1362669904}
   - component: {fileID: 1362669903}
   - component: {fileID: 1362669902}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: EnemyDestoyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
