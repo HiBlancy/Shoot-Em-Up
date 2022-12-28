@@ -5,6 +5,11 @@ using UnityEngine;
 public class LifeCollision : MonoBehaviour
 {
     float randomLifeNum;
+
+    void OnEnable()
+    {
+        Invoke("Disapear", 4f);
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         randomLifeNum = Random.Range(0.2f, 2f);
@@ -13,6 +18,11 @@ public class LifeCollision : MonoBehaviour
         {
             PlayerHealth.Obj.GiveHealtToPlayer(randomLifeNum);
         }
+        gameObject.SetActive(false);
+    }
+
+    void Disapear()
+    {
         gameObject.SetActive(false);
     }
 }
