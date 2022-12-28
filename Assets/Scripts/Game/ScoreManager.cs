@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -34,10 +35,14 @@ public class ScoreManager : MonoBehaviour
     public void updateScore()
     {
         scoreOnScreen.text = "" + score;
+    }
 
-        if (score < PlayerPrefs.GetInt("Score", 0))
+    public void highScore()
+    {
+        if (score > PlayerPrefs.GetInt("Score"))
+        {
             PlayerPrefs.SetInt("Score", score);
-
-        highscore.text = "" + score;
+            highscore.text = score.ToString();
+        }
     }
 }

@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         {
             DeadPanel.SetActive(true); //hacer una explocion final cuando el jugador muere y entonces poner el pausa
             Time.timeScale = 0f;
+            ScoreManager.Obj.highScore();
         }
     }
 
