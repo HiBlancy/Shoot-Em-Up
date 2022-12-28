@@ -8,9 +8,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float _spawnHeight;
     [SerializeField] float _maxSpawnWidth;
 
+    public float spawningEnemy;
+
     void Start()
     {
-        InvokeRepeating("SpawnNewEnemy", 0f, 3f);
+        spawningEnemy = 5f;
+        InvokeRepeating("SpawningFaster", 0f, 10f);
     }
 
     void SpawnNewEnemy()
@@ -18,5 +21,10 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemyGO = PoolManager.Obj.EnemyPool.GetElement();
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.Spawn(_maxSpawnWidth, _spawnHeight);
+    }
+    void SpawningFaster()
+    {
+        spawningEnemy += 0.25f;
+        InvokeRepeating("SpawnNewEnemy", 0f, spawningEnemy);
     }
 }

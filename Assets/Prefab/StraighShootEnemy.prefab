@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   giveScore: 800
+  myPrefabUpgrade: {fileID: 7211643481725921825, guid: 094d82f5989ff9d4898887d06bb85a5d, type: 3}
   enemyExplotionPosition: {fileID: 7160176404463939991}
 --- !u!61 &4941082298488551074
 BoxCollider2D:

@@ -5996,6 +5996,7 @@ MonoBehaviour:
   - {fileID: 2417658861929643991, guid: b87e3bad974b44a4f8ecf75237040a61, type: 3}
   _spawnHeight: 4
   _maxSpawnWidth: 9
+  spawningEnemy: 0
 --- !u!1 &1323098900
 GameObject:
   m_ObjectHideFlags: 0

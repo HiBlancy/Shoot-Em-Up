@@ -7,6 +7,9 @@ public class EnemyCollision : MonoBehaviour
     public float health;
     public int giveScore;
 
+    int posibilityForUpgrade;
+    public GameObject myPrefabUpgrade;
+
     [SerializeField] Transform enemyExplotionPosition;
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -27,6 +30,13 @@ public class EnemyCollision : MonoBehaviour
         GameObject explosion = PoolManager.Obj.ExplotionPool.GetElement();
         ExplotionBehaviour explotionBehaviour = explosion.GetComponent<ExplotionBehaviour>();
         explotionBehaviour.SetUpExplotion(enemyExplotionPosition.position);
+
+        posibilityForUpgrade = Random.Range(0, 2);
+
+        if (posibilityForUpgrade == 0)
+        {
+            Instantiate(myPrefabUpgrade, transform.localPosition, Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
