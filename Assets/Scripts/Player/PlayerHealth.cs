@@ -41,6 +41,10 @@ public class PlayerHealth : MonoBehaviour
     public void GiveHealtToPlayer(float randomLifeNum)
     {
         currentHealth += randomLifeNum;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
         UpdateHealthBar();
     }
 

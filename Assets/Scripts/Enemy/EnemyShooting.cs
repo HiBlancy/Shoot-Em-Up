@@ -23,6 +23,9 @@ public class EnemyShooting : MonoBehaviour
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.SetUpBullet(enemyShootPosition.position);
         bulletBehaviour.ShootEnemyBullet(target.position - transform.position);
-
+    }
+    void OnDisable()
+    {
+        CancelInvoke();
     }
 }

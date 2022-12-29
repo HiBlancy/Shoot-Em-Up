@@ -13,7 +13,6 @@ public class EnemyShootStraight : MonoBehaviour
     void Start()
     {
         InvokeRepeating("ShootEnemy", 0f, timeToShootAgain);
-        InvokeRepeating("ShootEnemy2", 0f, timeToShootAgain2); //shot one then other NEED TO FIX
     }
 
     void ShootEnemy()
@@ -23,14 +22,20 @@ public class EnemyShootStraight : MonoBehaviour
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.SetUpBullet(enemyShootPosition.position);
         bulletBehaviour.ShootBullet(Vector2.left);
+        InvokeRepeating("ShootEnemy2", 1f, timeToShootAgain2);
     }
 
-    public void ShootEnemy2()
+    void ShootEnemy2()
     {
         GameObject bullet = PoolManager.Obj.BulletEnemyPool.GetElement();
 
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
         bulletBehaviour.SetUpBullet(enemyShootPosition2.position);
         bulletBehaviour.ShootBullet(Vector2.left);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
     }
 }

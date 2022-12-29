@@ -15,7 +15,7 @@ public class EnemyCollision : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         health--;
-        if (health == 0)
+        if (health <= 0)
         {
             Die();
         }
