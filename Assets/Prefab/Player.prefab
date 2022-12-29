@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7652345187447915330}
   - component: {fileID: 7652345187447915329}
+  - component: {fileID: 7082287427264026343}
   - component: {fileID: 7652345187447915328}
   - component: {fileID: 7652345187447915359}
   - component: {fileID: 7652345187447915358}
@@ -119,6 +120,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7082287427264026343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652345187447915357}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e12eb47b6213c47ba8a05568419d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerExplotionPosition: {fileID: 7652345187447915330}
+  DeadPanel: {fileID: 8852154717162451818, guid: 79356ddfa3bbed542b55d962628652ee, type: 3}
+  player: {fileID: 7652345187447915357}
+  playerHealth: {fileID: 842230073}
 --- !u!61 &7652345187447915328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -296,6 +313,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7652345187447915330}
     m_Modifications:
+    - target: {fileID: 5825824692859809428, guid: c88b8d7ee75407843a1adc43e44d4352, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7652345187447915357}
     - target: {fileID: 5825824694484727051, guid: c88b8d7ee75407843a1adc43e44d4352, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -406,6 +427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c88b8d7ee75407843a1adc43e44d4352, type: 3}
+--- !u!1 &842230073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5825824694484727055, guid: c88b8d7ee75407843a1adc43e44d4352, type: 3}
+  m_PrefabInstance: {fileID: 5825824694179634230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &842230077 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5825824694484727051, guid: c88b8d7ee75407843a1adc43e44d4352, type: 3}

@@ -31,7 +31,7 @@ public class EnemyCollision : MonoBehaviour
         ExplotionBehaviour explotionBehaviour = explosion.GetComponent<ExplotionBehaviour>();
         explotionBehaviour.SetUpExplotion(enemyExplotionPosition.position);
 
-        posibilityForUpgrade = Random.Range(0, 2);
+        posibilityForUpgrade = Random.Range(0, 10);
 
         if (posibilityForUpgrade == 0)
         {

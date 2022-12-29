@@ -7,11 +7,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth Obj { get; private set; }
 
+    [SerializeField] GameObject player;
+
     public Image healthBar;
     public float maxHealth = 5;
     public float currentHealth;
-
-    [SerializeField] GameObject DeadPanel;
 
     void Awake()
     {
@@ -32,9 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DeadPanel.SetActive(true); //hacer una explocion final cuando el jugador muere y entonces poner el pausa
-            Time.timeScale = 0f;
-            ScoreManager.Obj.highScore();
+            player.GetComponent<PlayerDeath>().enabled = true;
         }
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerSecondShot : MonoBehaviour
 {
+    public static PlayerSecondShot Obj { get; private set; }
+
     bool ableToShoot;
     float timeToShootAgain = 20f;
     Animator animator;
@@ -11,6 +13,11 @@ public class PlayerSecondShot : MonoBehaviour
 
     void Awake()
     {
+        if (Obj != null && Obj != this)
+            Destroy(this);
+        else
+            Obj = this;
+
         ableToShoot = true;
     }
 
@@ -33,7 +40,7 @@ public class PlayerSecondShot : MonoBehaviour
         {
             ableToShoot = false;
 
-            audioSource.Play();
+            ExplotionAndDie();
 
             GameObject[] enemies;
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -41,13 +48,18 @@ public class PlayerSecondShot : MonoBehaviour
             GameObject[] enemyBullets;
             enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
 
-            animator.SetBool("BOOM", true);
-
             foreach(GameObject enemy in enemies)
                 enemy.SetActive(false);
 
             StartCoroutine(WaitToShootAgain());
         }
+    }
+
+    public void ExplotionAndDie()
+    {
+        audioSource.Play();
+
+        animator.SetBool("BOOM", true);
     }
 
     IEnumerator WaitToShootAgain()
