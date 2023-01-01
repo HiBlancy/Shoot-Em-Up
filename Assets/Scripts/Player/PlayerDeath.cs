@@ -25,12 +25,12 @@ public class PlayerDeath : MonoBehaviour
 
     public void PlayerDied()
     {
+        PlayerSecondShot.Obj.ExplotionAndDie();
+
         spriteRenderer.enabled = false;
 
         player.GetComponent<PlayerMovment>().enabled = false;
         playerHealth.GetComponent<Canvas>().enabled = false;   
-
-        PlayerSecondShot.Obj.ExplotionAndDie();
 
         GameObject explosion = PoolManager.Obj.ExplotionPool.GetElement();
         ExplotionBehaviour explotionBehaviour = explosion.GetComponent<ExplotionBehaviour>();

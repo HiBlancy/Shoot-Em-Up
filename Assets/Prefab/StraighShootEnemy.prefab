@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1469676266851152883}
   - component: {fileID: 2244646968302962317}
   - component: {fileID: 2746206713157708476}
-  - component: {fileID: 4732817289429173169}
+  - component: {fileID: 3712215329776247050}
   m_Layer: 6
   m_Name: StraighShootEnemy
   m_TagString: Enemy
@@ -198,7 +198,7 @@ MonoBehaviour:
   enemyShootPosition2: {fileID: 5794452653952735996}
   timeToShootAgain: 2
   timeToShootAgain2: 3
---- !u!82 &4732817289429173169
+--- !u!82 &3712215329776247050
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,9 +208,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3a9757e581e49e44d8cb0e81efdc8669, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8d2df0060e197a74d9d2da9961ef27be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0

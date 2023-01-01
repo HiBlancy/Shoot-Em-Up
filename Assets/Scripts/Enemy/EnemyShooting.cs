@@ -8,14 +8,18 @@ public class EnemyShooting : MonoBehaviour
 
     Transform target;
     public float timeToShootAgain;
+    AudioSource audioS;
 
     void Start()
     {
         InvokeRepeating("ShootEnemy", 0f, timeToShootAgain);
+        audioS = GetComponent<AudioSource>();
     }
 
     void ShootEnemy()
     {
+        audioS.Play();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
         GameObject bullet = PoolManager.Obj.BulletEnemyPool.GetElement();

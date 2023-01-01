@@ -10,13 +10,17 @@ public class EnemyShootStraight : MonoBehaviour
     public float timeToShootAgain;
     public float timeToShootAgain2;
 
+    AudioSource audioS;
+
     void Start()
     {
         InvokeRepeating("ShootEnemy", 0f, timeToShootAgain);
+        audioS = GetComponent<AudioSource>();
     }
 
     void ShootEnemy()
     {
+        audioS.Play();
         GameObject bullet = PoolManager.Obj.BulletEnemyPool.GetElement();
 
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();
@@ -27,6 +31,7 @@ public class EnemyShootStraight : MonoBehaviour
 
     void ShootEnemy2()
     {
+        audioS.Play();
         GameObject bullet = PoolManager.Obj.BulletEnemyPool.GetElement();
 
         BulletBehaviour bulletBehaviour = bullet.GetComponent<BulletBehaviour>();

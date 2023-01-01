@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour
     public int score;
     [SerializeField] Text highscore;
 
+    AudioSource audioS;
+
     void Awake()
     {
         if (Obj != null && Obj != this)
@@ -24,6 +26,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         highscore.text = PlayerPrefs.GetInt("Score", 0).ToString();
+        audioS = GetComponent<AudioSource>();
     }
 
     public void addScore(int giveScore)
@@ -35,6 +38,7 @@ public class ScoreManager : MonoBehaviour
     public void updateScore()
     {
         scoreOnScreen.text = "" + score;
+        audioS.Play();
     }
 
     public void highScore()

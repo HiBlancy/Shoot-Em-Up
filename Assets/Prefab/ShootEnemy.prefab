@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1564546330}
   - component: {fileID: -2623958524304944995}
   - component: {fileID: -3398507022070241821}
-  - component: {fileID: 2010896811160391354}
+  - component: {fileID: 1443734296044199425}
   m_Layer: 6
   m_Name: ShootEnemy
   m_TagString: Enemy
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyExplotionPosition: {fileID: 8454663145702331647}
---- !u!82 &2010896811160391354
+--- !u!82 &1443734296044199425
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,9 +265,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3a9757e581e49e44d8cb0e81efdc8669, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8d2df0060e197a74d9d2da9961ef27be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0

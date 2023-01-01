@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform enemyExplotionPosition;
+
     public void Spawn(float maxSpawnWidth, float spawnHeight)
     {
         transform.position = new Vector2((maxSpawnWidth), Random.Range (-spawnHeight, spawnHeight));
