@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1563205641538528404}
   - component: {fileID: 1563205641538528405}
   - component: {fileID: -635760786199791240}
+  - component: {fileID: 2284894874231070381}
   m_Layer: 6
   m_Name: FastEnemy
   m_TagString: Enemy
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e7311567c419e4fa501fc5a8686ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyExplotionPosition: {fileID: 1952577877811170135}
+--- !u!114 &2284894874231070381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563205641538528392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e482988bca87f2043986d7e1fb4a5795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyExplotionPosition: {fileID: 1952577877811170135}

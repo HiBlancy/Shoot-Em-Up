@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlayerSecondShot : MonoBehaviour
 {
-    public static PlayerSecondShot Obj { get; private set; }
+    public delegate void Explotion();
+    public event Explotion EnemiesDie;
 
-    bool ableToShoot;
+    bool ableToShoot = true;
     float timeToShootAgain = 20f;
     Animator animator;
     AudioSource audioSource;
 
+    public static PlayerSecondShot Obj { get; private set; }
     void Awake()
     {
         if (Obj != null && Obj != this)
             Destroy(this);
         else
             Obj = this;
-
-        ableToShoot = true;
     }
 
     void Start()
@@ -31,25 +31,15 @@ public class PlayerSecondShot : MonoBehaviour
 
     void FixedUpdate()
     {
-        TrowBomb();
-    }
-
-    void TrowBomb()
-    {
-        if(Input.GetKeyDown(KeyCode.E) & ableToShoot)
+        if (Input.GetKeyDown(KeyCode.E) & ableToShoot)
         {
+            EnemiesDie();
+
+            Debug.Log("Arrived1");
+
             ableToShoot = false;
 
             ExplotionAndDie();
-
-            GameObject[] enemies;
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            GameObject[] enemyBullets;
-            enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-
-            foreach(GameObject enemy in enemies)
-                enemy.SetActive(false);
 
             StartCoroutine(WaitToShootAgain());
         }

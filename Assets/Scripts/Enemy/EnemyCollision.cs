@@ -23,7 +23,6 @@ public class EnemyCollision : MonoBehaviour
 
     public void Die()
     {
-
         ScoreManager.Obj.addScore(giveScore);
 
         PoolManager.Obj.EnemyPool.ReturnElement(this.gameObject);
